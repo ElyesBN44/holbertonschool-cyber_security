@@ -1,2 +1,3 @@
 #!/bin/bash
-[ "$(sha256sum "$1" | cut -d ' ' -f1)" = "$2" ] && echo ok || echo invalid
+hash=$(sha256sum "$1" | cut -d ' ' -f1)
+[ "${hash,,}" = "${2,,}" ] && echo ok || echo invalid
